@@ -1,0 +1,264 @@
+:root {
+  --bg-color: #f5f7fa;
+  --card-bg: white;
+  --text-color: #333;
+  --income-color: #d4edda;
+  --expense-color: #f8d7da;
+  --balance-color: #cce5ff;
+}
+
+body.dark-mode {
+  --bg-color: #1e1e2f;
+  --card-bg: #2a2a40;
+  --text-color: #f5f5f5;
+  --income-color: #2e7c5e;
+  --expense-color: #9c3d3d;
+  --balance-color: #3d5a80;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-box {
+  flex: 1;
+  min-width: 200px;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.summary-box:hover {
+  transform: scale(1.03);
+}
+
+.summary-box.income {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.summary-box.expense {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.summary-box.balance {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+input, select, button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #219150;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+#transaction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction {
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+  padding: 1rem;
+  border-left: 5px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.transaction:hover {
+  background-color: #e9ecef;
+  transform: translateX(5px);
+}
+
+.transaction.income {
+  border-left-color: #27ae60;
+}
+
+.transaction.expense {
+  border-left-color: #e74c3c;
+}
+
+.delete-btn, .edit-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.edit-btn {
+  background: #3498db;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+.summary-box.income {
+  background-color: var(--income-color);
+}
+
+.summary-box.expense {
+  background-color: var(--expense-color);
+}
+
+.summary-box.balance {
+  background-color: var(--balance-color);
+}
+
+.transaction {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* The switch - www.w3schools.com/howto/howto_css_switch.asp */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; width: 16px;
+  left: 2px; bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+}
+
+#categoryChart {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
+}

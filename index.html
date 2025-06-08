@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Expense Tracker</h1>
+    <div class="theme-toggle">
+  <label class="switch">
+    <input type="checkbox" id="theme-toggle">
+    <span class="slider round"></span>
+  </label>
+  <span>Dark Mode</span>
+</div>
+
+    <!-- Summary Section -->
+    <div class="summary">
+      <div class="summary-box income">
+        <span>Total Income</span>
+        <p id="total-income">₹0</p>
+      </div>
+      <div class="summary-box expense">
+        <span>Total Expenses</span>
+        <p id="total-expense">₹0</p>
+      </div>
+      <div class="summary-box balance">
+        <span>Net Balance</span>
+        <p id="net-balance">₹0</p>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <form id="transaction-form">
+      <input type="text" id="description" placeholder="Description" required/>
+      <input type="date" id="date" required/>
+      <select id="category" required>
+        <option value="" disabled selected>Select Category</option>
+        <option value="Salary">Salary</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Food">Food</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="number" id="amount" placeholder="Amount" min="0.01" step="0.01" required/>
+      <button type="submit">Add Transaction</button>
+      <p id="error-message" class="error"></p>
+    </form>
+
+    <!-- Filter Dropdown -->
+    <div class="controls">
+      <select id="filter-category">
+        <option value="all">All Categories</option>
+        <option value="Salary">Salary</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Food">Food</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="chart-container">
+      <canvas id="categoryChart" width="400" height="300"></canvas>
+      </div>
+      <div class="csv-controls">
+        <input type="file" id="csvFile" accept=".csv" />
+        <button onclick="exportToCSV()">Export to CSV</button>
+      </div>
+    </div>
+
+    <!-- Transaction List -->
+    <ul id="transaction-list"></ul>
+
+  <canvas id="categoryChart" width="400" height="300"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
